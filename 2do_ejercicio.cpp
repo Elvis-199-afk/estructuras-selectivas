@@ -1,9 +1,14 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
+float  valor_final(float valor_compra, float descuento){
+		descuento = valor_compra*0.2;
+		return valor_compra - descuento;
+}
+
 int main (){
-	
-	float valor_compra, valor_final, descuento;
+	float valor_compra, descuento;
 	do{
 		system("cls");
 		cout << "Introduzca el valor de la compra: ";
@@ -15,12 +20,9 @@ int main (){
 	}while(valor_compra<0);
 	
 	if (valor_compra > 1000){
-		descuento = valor_compra*0.2;
-		valor_final = valor_compra - descuento;
-		cout << "El valor final de la compra es: " << valor_final << endl;
+		cout << "El valor final de la compra es: " <<  valor_final( valor_compra,  descuento) << endl;
 	} else {
-		valor_final = valor_compra;
-		cout << "El valor final de la compra es: " << valor_final << endl;
+		cout << "El valor final de la compra es: " << valor_compra << endl;
 	}
 	return 0;
 }
