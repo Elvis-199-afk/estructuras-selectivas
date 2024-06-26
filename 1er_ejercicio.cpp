@@ -1,45 +1,41 @@
 #include <iostream>
 using namespace std;
 
-int main (){
-	
-	float c1, c2, c3, promedio;
-	
-	do{
-		
-		cout << "Introduce la primera calificacion: ";
-		cin >> c1;
-		if(c1<0){
-			cout<<"Introduzca numeros positivos"<<endl;
-			
-		}
-	}while(c1<0);
-	
-	do{
-		
-		cout << "Introduce la segunda calificacion: ";
-		cin >> c2;
-		if(c2<0){
-			cout<<"Introduzca numeros positivos"<<endl;
-			
-		}
-	}while(c2<0);
-	
-	do{
-		
-		cout << "Introduce la tercera calificacion: ";
-		cin >> c3;
-		if(c3<0){
-			cout<<"Introduzca numeros positivos"<<endl;
-		}
-	}while(c3<0);
-	system("cls");
-	promedio = (c1+c2+c3)/3;
-	if (promedio >= 70){
-		cout << "===Aprobado==="<<endl;
-	} else {
-		cout << "===Reprobado==="<<endl;
-	}
-	return 0;
-
+// Función para pedir y validar una calificación
+float pedirCalificacion(string mensaje) {
+    float calificacion;
+    do {
+        cout << mensaje;
+        cin >> calificacion;
+        if (calificacion < 0) {
+            cout << "Introduzca números positivos" << endl;
+        }
+    } while (calificacion < 0);
+    return calificacion;
 }
+
+// Función para calcular el promedio
+float calcularPromedio(float c1, float c2, float c3) {
+    return (c1 + c2 + c3) / 3;
+}
+
+// Función principal
+int main() {
+    float c1, c2, c3, promedio;
+
+    c1 = pedirCalificacion("Introduce la primera calificación: ");
+    c2 = pedirCalificacion("Introduce la segunda calificación: ");
+    c3 = pedirCalificacion("Introduce la tercera calificación: ");
+
+    promedio = calcularPromedio(c1, c2, c3);
+
+    cout << endl;
+    if (promedio >= 70) {
+        cout << "===Aprobado===" << endl;
+    } else {
+        cout << "===Reprobado===" << endl;
+    }
+
+    return 0;
+}
+
